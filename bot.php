@@ -45,4 +45,4 @@ if (!is_null($events['events'])) {
 	}
 }
 $botname = "siczones-bot";
-echo "OK" . $botname;
+echo "OK from " . $botname;
