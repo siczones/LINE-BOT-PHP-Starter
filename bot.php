@@ -20,11 +20,8 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			$messages = [
-				// 'type' => 'text',
-				// 'text' => $text . " จาก ". $botname,
-				'type' => 'image',
-				'originalContentUrl' => 'http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg',
-				'previewImageUrl' => "http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg"
+				'type' => 'text',
+				'text' => $text . " จาก ". $botname,
 			];
 
 
