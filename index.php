@@ -6,7 +6,7 @@
 <body>
 
 <?php
-echo "Welcome to LINE-Bot php ";
+echo "<h1>Welcome to LINE-Bot php</h1> ";
 ?>
 
 </body>
