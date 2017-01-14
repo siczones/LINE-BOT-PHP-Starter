@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 				// 'text' => $text . " จาก ". $botname,
 				'type' => 'image',
 				'originalContentUrl' => 'http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg',
-				'previewImageUrl' => "https://www.google.co.th/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwiWjaD7iMHRAhXHK48KHdkBByEQjRwIBw&url=http%3A%2F%2Fwww.dgreetings.com%2Fchildrenday%2Finternational-ch-day.html&psig=AFQjCNH4LOjCnNEU4V27OrDM7BY9X_PCpQ&ust=1484463862771791"
+				'previewImageUrl' => "http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg"
 			];
 
 
