@@ -17,7 +17,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 
-echo "<h2>This is get verify JSON file from Sever </h2>"$result;
+echo "<h2>This is get verify JSON file from Sever </h2>" .$result;
 ?>
 
 </body>
