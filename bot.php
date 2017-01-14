@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $text . " จาก ". $botname,
+				'text' => $text . " จาก ". $botname
 			
 			// ,{
 			// 	'type' => 'text',
