@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>LINE-Bot php</title>	
+</head>
 <body>
 
 <?php
-echo "My first PHP script!";
+echo "Welcome to LINE-Bot php ";
 ?>
 
 </body>
