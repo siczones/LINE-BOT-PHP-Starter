@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LINE-Bot php Verify</title>	
+</head>
 <?php
 $access_token = 'hb8oE3kH7ys+kpqrUcKCEeAii6gvsAmf4hKTJzffNe6VEkcptKpdczTKs7BHuxlkN3JbH8731E1D7/h/4Lu2L5gjKrTTW9kpwGTcZd7w+tpw/RPQEWWILrhfePT0s2nUe2M+O50e1NOPVUpNAF3emwdB04t89/1O/w1cDnyilFU=';
 
@@ -12,4 +17,8 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 $result = curl_exec($ch);
 curl_close($ch);
 
-echo $result;
+echo "<h2>This is get verify JSON file from Sever </h2>"$result;
+?>
+
+</body>
+</html>
