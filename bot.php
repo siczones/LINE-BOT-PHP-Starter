@@ -22,11 +22,9 @@ if (!is_null($events['events'])) {
 			$messages = [
 				'type' => 'text',
 				'text' => $text . " จาก ". $botname
-			
-			// ,{
-			// 	'type' => 'text',
-			// 	'text' => $text . " จาก ". $botname,
-			// }
+				// 'type' => 'image',
+				// 'originalContentUrl' => 'http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg',
+				// 'previewImageUrl' => "http://www.dgreetings.com/newimages/inchildday/happy-childrens-day-card.jpg"
 			];
 
 
