@@ -1,5 +1,7 @@
+<?php
+
 define('LINE_API',"https://notify-api.line.me/api/notify");
-define('LINE_TOKEN','YAfIufK060o3HzDe0qRaJbMwJBOiUroEKWh6Y1YeAv2');
+define('LINE_TOKEN','P8xV9pSkPz5NRedG3GL45TDKDTVmnqx402fedP8IHs8');
 
 function notify_message($message){
 
@@ -9,7 +11,7 @@ function notify_message($message){
         'http'=>array(
             'method'=>'POST',
             'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
-            		  ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+                      ."Authorization: Bearer ".LINE_TOKEN."\r\n"
                       ."Content-Length: ".strlen($queryData)."\r\n",
             'content' => $queryData
         )
@@ -17,7 +19,7 @@ function notify_message($message){
     $context = stream_context_create($headerOptions);
     $result = file_get_contents(LINE_API,FALSE,$context);
     $res = json_decode($result);
-	return $res;
+    return $res;
 }
 $res = notify_message('hello');
 var_dump($res);
