@@ -5,5 +5,7 @@ $bot = new Linebot();
 $text = $bot->getMessageText();
 $bot->reply($text);
 
+echo "This LINE-bot is working now!";
+
 
 
