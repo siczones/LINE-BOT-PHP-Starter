@@ -1,25 +1,25 @@
-<!-- Push message -->
-<!DOCTYPE html>
-<html>
-<head>
-	<title>LINE-Bot php Push message</title>	
-</head>
 <?php
-$access_token = 'hb8oE3kH7ys+kpqrUcKCEeAii6gvsAmf4hKTJzffNe6VEkcptKpdczTKs7BHuxlkN3JbH8731E1D7/h/4Lu2L5gjKrTTW9kpwGTcZd7w+tpw/RPQEWWILrhfePT0s2nUe2M+O50e1NOPVUpNAF3emwdB04t89/1O/w1cDnyilFU=';
 
-$url = 'https://api.line.me/v2/bot/message/push';
+define('LINE_API',"https://api.line.me/v2/bot/message/push");
+define('LINE_TOKEN','hb8oE3kH7ys+kpqrUcKCEeAii6gvsAmf4hKTJzffNe6VEkcptKpdczTKs7BHuxlkN3JbH8731E1D7/h/4Lu2L5gjKrTTW9kpwGTcZd7w+tpw/RPQEWWILrhfePT0s2nUe2M+O50e1NOPVUpNAF3emwdB04t89/1O/w1cDnyilFU=');
 
-$headers = array('Authorization: Bearer ' . $access_token);
+function notify_message($message){
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
-
-echo "<h2>This is Push message and JSON file from Sever </h2>" .$result;
-?>
-
-</body>
-</html>
+    $queryData = array('message' => $message);
+    $queryData = http_build_query($queryData,'','&');
+    $headerOptions = array(
+        'http'=>array(
+            'method'=>'POST',
+            'header'=> "Content-Type: application/x-www-form-urlencoded\r\n"
+                      ."Authorization: Bearer ".LINE_TOKEN."\r\n"
+                      ."Content-Length: ".strlen($queryData)."\r\n",
+            'content' => $queryData
+        )
+    );
+    $context = stream_context_create($headerOptions);
+    $result = file_get_contents(LINE_API,FALSE,$context);
+    $res = json_decode($result);
+    return $res;
+}
+$res = notify_message('hello');
+var_dump($res);
