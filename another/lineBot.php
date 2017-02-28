@@ -2,7 +2,8 @@
 <?php
 	
 //	CREATE BY NONTACHAI KONINAI
-//	01 OCTOBER 2016
+//	Edited by Siczones
+//	January 2017
 	
 require_once __DIR__ . '/setting.php';
 class Linebot {
@@ -14,7 +15,8 @@ class Linebot {
 	private $apiPush;
 	
 	public function __construct(){
-		$this->channelAccessToken = Setting::getChannelAccessToken();
+		//call function in setting.php
+		$this->channelAccessToken = Setting::getChannelAccessToken(); 
 		$this->channelSecret = Setting::getChannelSecret();
 		$this->apiReply = Setting::getApiReply();
 		$this->apiPush = Setting::getApiPush();
