@@ -6,7 +6,7 @@ require_once __DIR__ . '/lineBot.php';
 
 $bot = new Linebot();
 $text = $bot->getMessageText();
-$bot->reply($text .ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่);
+$bot->reply($text .ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ .'https://siczones.coe.psu.ac.th');
 
 echo "<hr><h3>success</h3><hr>";
 ?>
