@@ -9,8 +9,45 @@ $text = $bot->getMessageText();
 if($text == 'สวัสดี'){
 	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
 }
-elseif( ($text == 'เปิดไฟ') or ($text == 'ปิดไฟ') ){
-	$bot->reply('ระบบรับรู้การ' .$text .' '.'ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+
+elseif( ($text == 'ปิดไซเรน') or ($text == 'siren off')){
+	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
+	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
+	
+	// use key 'http' even if you send the request to https://...
+	$options = array(
+	    'http' => array(
+	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+	        'method'  => 'POST',
+	        'content' => http_build_query($data)
+	    )
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result === FALSE) { /* Handle error */ }
+	
+	var_dump($result);
+}
+
+elseif( ($text == 'เปิดไซเรน') or ($text == 'siren on')){
+	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
+	$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
+	
+	// use key 'http' even if you send the request to https://...
+	$options = array(
+	    'http' => array(
+	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+	        'method'  => 'POST',
+	        'content' => http_build_query($data)
+	    )
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result === FALSE) { /* Handle error */ }
+	
+	var_dump($result);
 }
 
 elseif( ($text == 'ราสเบอรี่พาย') or ($text == 'pi')){
