@@ -12,7 +12,28 @@ if($text == 'สวัสดี'){
 elseif( ($text == 'เปิดไฟ') or ($text == 'ปิดไฟ') ){
 	$bot->reply('ระบบรับรู้การ' .$text .' '.'ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 }
-elseif( ($text == 'อุณหภูมิ')){
+
+elseif( ($text == 'ราสเบอรี่พาย') or ($text == 'pi')){
+	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+	$data = array('ID' => 'rpitemp', 'key' => 'abcd');
+	
+	// use key 'http' even if you send the request to https://...
+	$options = array(
+	    'http' => array(
+	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+	        'method'  => 'POST',
+	        'content' => http_build_query($data)
+	    )
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result === FALSE) { /* Handle error */ }
+	
+	var_dump($result);
+}
+
+elseif( ($text == 'อุณหภูมิ') or ($text == 'temp')){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'temp', 'key' => 'abcd');
@@ -31,7 +52,7 @@ elseif( ($text == 'อุณหภูมิ')){
 	
 	var_dump($result);
 }
-elseif( ($text == 'ความชื้น')){
+elseif( ($text == 'ความชื้น') or ($text == 'humidity')){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'humid', 'key' => 'abcd');
@@ -50,7 +71,7 @@ elseif( ($text == 'ความชื้น')){
 	
 	var_dump($result);
 	}
-elseif( ($text == 'เสียงผิดปกติ')){
+elseif( ($text == 'เสียงผิดปกติ') or ($text == 'voice')){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'voice', 'key' => 'abcd');
@@ -69,7 +90,7 @@ elseif( ($text == 'เสียงผิดปกติ')){
 	
 	var_dump($result);
 	}
-elseif( ($text == 'แสงสว่าง')){
+elseif( ($text == 'แสงสว่าง') or ($text == 'light')){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'light', 'key' => 'abcd');
@@ -88,7 +109,7 @@ elseif( ($text == 'แสงสว่าง')){
 	
 	var_dump($result);
 	}
-elseif( ($text == 'การเคลื่อนไหว')){
+elseif( ($text == 'การเคลื่อนไหว') or ($text == 'motion')){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'motion', 'key' => 'abcd');
