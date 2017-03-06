@@ -6,7 +6,7 @@ require_once __DIR__ . '/lineBot.php';
 
 $bot = new Linebot();
 $text = $bot->getMessageText();
-$rpitemp = 'pi';
+$rpitemp = array("pi", "ไพ");
 
 if($text == 'สวัสดี'){
 	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
@@ -52,7 +52,7 @@ elseif( ($text == 'เปิดไซเรน') or ($text == 'siren on')){
 	var_dump($result);
 }
 
-elseif (strpos($text, $rpitemp) !== false){
+elseif ((strpos($text, $rpitemp) !== false){
 	$bot->reply('ระบบกำลังตรวจสอบ...' .$text .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'rpitemp', 'key' => 'abcd');
