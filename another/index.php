@@ -28,7 +28,7 @@ if($text == 'สวัสดี' or $text== 'Hello'){
 }
 
 elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
-	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
+	//$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
 	$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
