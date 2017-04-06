@@ -42,7 +42,7 @@ elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !==
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
@@ -62,7 +62,7 @@ elseif ((strpos($text, $sirenOn) !== false) or (strpos($text, $sirenOn_th) !== f
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
@@ -82,7 +82,7 @@ elseif ((strpos($text, $rpitemp) !== false) or (strpos($text, $rpitemp_th) !== f
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
@@ -102,7 +102,7 @@ elseif ((strpos($text, $temp) !== false) or (strpos($text, $temp_th) !== false))
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
@@ -121,7 +121,7 @@ elseif ((strpos($text, $humid) !== false) or (strpos($text, $humid_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
@@ -140,7 +140,7 @@ elseif ((strpos($text, $voice) !== false) or (strpos($text, $voice_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
@@ -159,7 +159,7 @@ elseif ((strpos($text, $light) !== false) or (strpos($text, $light_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
@@ -178,7 +178,7 @@ elseif ((strpos($text, $motion) !== false) or (strpos($text, $motion_th) !== fal
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) { /* Handle error */ }
+	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
