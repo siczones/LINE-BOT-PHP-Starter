@@ -6,7 +6,10 @@ require_once __DIR__ . '/lineBot.php';
 
 $bot = new Linebot();
 $text = $bot->getMessageText();
-
+$sirenOn = 'siren on';
+$sirenOn_th = 'เปิดไซเรน';
+$sirenOff = 'siren off';
+$sirenOff_th = 'ปิดไซเรน';
 $rpitemp = 'pi';
 $rpitemp_th = 'พาย';
 $temp = 'temp';
@@ -20,12 +23,12 @@ $light_th = 'แสง';
 $motion = 'motion';
 $motion_th = 'เคลื่อนไหว';
 
-if($text == 'สวัสดี'){
+if($text == 'สวัสดี' or $text== 'Hello'){
 	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
 }
 
-elseif( ($text == 'ปิดไซเรน') or ($text == 'siren off')){
-	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
+	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
 	
@@ -44,8 +47,8 @@ elseif( ($text == 'ปิดไซเรน') or ($text == 'siren off')){
 	var_dump($result);
 }
 
-elseif( ($text == 'เปิดไซเรน') or ($text == 'siren on')){
-	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+elseif ((strpos($text, $sirenOn) !== false) or (strpos($text, $sirenOn_th) !== false)){
+	$bot->reply($text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
 	
