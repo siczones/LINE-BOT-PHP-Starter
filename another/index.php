@@ -32,11 +32,8 @@ $standby_th = 'โหมด: อยู่บ้าน';
 $full = 'mode: full';
 $full_th = 'โหมด: ไม่อยู่บ้าน';
 
-if($text == 'สวัสดี' or $text== 'Hello'){
-	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
-}
 
-elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
+if ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
 	$bot->reply('ส่งคำขอ ' .$text .'  ให้แล้วนะ ' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
@@ -260,6 +257,20 @@ elseif ((strpos($text, $help) !== false) or (strpos($text, $help_th1) !== false)
 
 elseif($text == 'สวัสดี' or $text== 'Hello'){
 	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
+	// use key 'http' even if you send the request to https://...
+	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/notify.py';
+	$data = array('data' => 'สวัสดี นี่คือระบบแจ้งเตือน', 'key' => 'abcd');
+	$options = array(
+	    'http' => array(
+	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+	        'method'  => 'POST',
+	        'content' => http_build_query($data)
+	    )
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	var_dump($result);
 }
 else{
 	$bot->reply('Oops! ไม่พบคีย์เวิร์ดที่ต้องการ ในระหว่างนี้ท่านสามารถใช้งาน คำสั่ง เปิดไฟ ปิดไฟ อุณหภูมิ ความชื้น เสียงผิดปกติ แสงสว่าง การเคลื่อนไหว หรือพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งานหรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
@@ -267,8 +278,3 @@ else{
 echo "<hr><h3>success</h3><hr>";
 
 ?>
-
-https://siczones.coe.psu.ac.th/cgi-bin/mode.py?key=abcd&currentMode=1
-
-
-
