@@ -23,13 +23,16 @@ $light = 'light';
 $light_th = 'แสง';
 $motion = 'motion';
 $motion_th = 'เคลื่อนไหว';
+$help = 'help';
+$help_th1 = 'ช่วยเหลือ';
+$help_th2 = 'คู่มือ';
 
 if($text == 'สวัสดี' or $text== 'Hello'){
 	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
 }
 
 elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
-	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ' .$endpoint);	
+	$bot->reply('ส่งคำขอ ' .$text .'  ให้แล้วนะ ' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
 	
@@ -49,7 +52,7 @@ elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !==
 }
 
 elseif ((strpos($text, $sirenOn) !== false) or (strpos($text, $sirenOn_th) !== false)){
-	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ' .$endpoint);		
+	$bot->reply('ส่งคำขอ ' .$text .'  ให้แล้วนะ ' .$endpoint);		
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
 	
@@ -183,6 +186,26 @@ elseif ((strpos($text, $motion) !== false) or (strpos($text, $motion_th) !== fal
 	
 	var_dump($result);
 	}
+
+elseif ((strpos($text, $help) !== false) or (strpos($text, $help_th1) !== false)){
+	$bot->reply('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ เปิดไฟ,ปิดไฟ,อุณหภูมิ,ความชื้น,เสียง,แสง,การเคลื่อนไหว,โหมด,โหมด: อยู่บ้าน,โหมด: ไม่อยู่บ้าน,pi,
+temp,
+humidity,
+motion,
+light,
+voice,
+siren on,
+siren off,
+mode,
+mode: stand by,
+mode: full
+'.$endpoint);	
+}
+
+elseif($text == 'สวัสดี' or $text== 'Hello'){
+	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
+}
+
 else{
 	$bot->reply('Oops! ไม่พบคีย์เวิร์ดที่ต้องการ ในระหว่างนี้ท่านสามารถใช้งาน คำสั่ง เปิดไฟ ปิดไฟ อุณหภูมิ ความชื้น เสียงผิดปกติ แสงสว่าง การเคลื่อนไหว หรือพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งานหรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 }
