@@ -31,6 +31,8 @@ $standby = 'mode: stand by';
 $standby_th = 'โหมด: อยู่บ้าน';
 $full = 'mode: full';
 $full_th = 'โหมด: ไม่อยู่บ้าน';
+$mode = 'mode';
+$mode_th = 'โหมด';
 
 
 if ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
@@ -227,6 +229,15 @@ elseif ((strpos($text, $full) !== false) or (strpos($text, $full_th) !== false))
 	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
+}
+
+elseif ((strpos($text, $mode) !== false) or (strpos($text, $mode_th1) !== false)){
+	$bot->reply('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อควบคุมโหมดการทำงานของระบบ 
+	โหมด: อยู่บ้าน,
+	โหมด: ไม่อยู่บ้าน,
+	mode: stand by,
+	mode: full
+'.$endpoint);	
 }
 	
 elseif ((strpos($text, $help) !== false) or (strpos($text, $help_th1) !== false)){
