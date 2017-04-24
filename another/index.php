@@ -188,8 +188,29 @@ elseif ((strpos($text, $motion) !== false) or (strpos($text, $motion_th) !== fal
 	}
 
 elseif ((strpos($text, $help) !== false) or (strpos($text, $help_th1) !== false)){
-	$bot->reply('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ 	เปิดไฟ,ปิดไฟ,อุณหภูมิ,ความชื้น,เสียง,แสง,การเคลื่อนไหว,โหมด,โหมด: อยู่บ้าน,โหมด: ไม่อยู่บ้าน,pi, 	temp,humidity,motion,light,voice,siren on,siren off,mode,mode: stand by,mode: full
-	'.$endpoint);	
+	$bot->reply('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ 
+	พาย,
+	อุณหภูมิ,
+	ความชื้น,
+	เคลื่อนไหว,
+	แสง,
+	เสียง,
+	ช่วยเหลือ,
+	โหมด,
+	โหมด: อยู่บ้าน,
+	โหมด: ไม่อยู่บ้าน,
+	pi,
+	temp,
+	humidity,
+	motion,
+	light,
+	voice,
+	siren on,
+	siren off,
+	mode,
+	mode: stand by,
+	mode: full
+'.$endpoint);	
 }
 
 elseif($text == 'สวัสดี' or $text== 'Hello'){
