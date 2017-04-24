@@ -43,7 +43,7 @@ elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !==
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
@@ -63,13 +63,13 @@ elseif ((strpos($text, $sirenOn) !== false) or (strpos($text, $sirenOn_th) !== f
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
 
 elseif ((strpos($text, $rpitemp) !== false) or (strpos($text, $rpitemp_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...อุณหภูมิเซิร์ฟเวอร์ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...อุณหภูมิเซิร์ฟเวอร์ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'rpitemp', 'key' => 'abcd');
 	
@@ -83,13 +83,13 @@ elseif ((strpos($text, $rpitemp) !== false) or (strpos($text, $rpitemp_th) !== f
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
 
 elseif ((strpos($text, $temp) !== false) or (strpos($text, $temp_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'temp', 'key' => 'abcd');
 	
@@ -103,12 +103,12 @@ elseif ((strpos($text, $temp) !== false) or (strpos($text, $temp_th) !== false))
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 }
 elseif ((strpos($text, $humid) !== false) or (strpos($text, $humid_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'humid', 'key' => 'abcd');
 	
@@ -122,12 +122,12 @@ elseif ((strpos($text, $humid) !== false) or (strpos($text, $humid_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
 elseif ((strpos($text, $voice) !== false) or (strpos($text, $voice_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...' .$voice_th .'ผิดปกติ   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...' .$voice_th .' ผิดปกติ  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'voice', 'key' => 'abcd');
 	
@@ -141,12 +141,12 @@ elseif ((strpos($text, $voice) !== false) or (strpos($text, $voice_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
 elseif ((strpos($text, $light) !== false) or (strpos($text, $light_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...' .$light_th .'สว่าง   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...' .$light_th .' สว่าง  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'light', 'key' => 'abcd');
 	
@@ -160,12 +160,12 @@ elseif ((strpos($text, $light) !== false) or (strpos($text, $light_th) !== false
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
 elseif ((strpos($text, $motion) !== false) or (strpos($text, $motion_th) !== false)){
-	$bot->reply('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้ท่านสามารถตรวจสอบสถานะการทำงานของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 	$data = array('ID' => 'motion', 'key' => 'abcd');
 	
@@ -179,12 +179,11 @@ elseif ((strpos($text, $motion) !== false) or (strpos($text, $motion_th) !== fal
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	if ($result === FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	
 	var_dump($result);
 	}
 else{
-	$bot->reply('Oops!  ระบบกำลังพัฒนาและพร้อมใช้งานในเร็วๆ นี้  ระหว่างนี้ท่านสามารถใช้งาน คำสั่ง เปิดไฟ ปิดไฟ อุณหภูมิ ความชื้น เสียงผิดปกติ แสงสว่าง การเคลื่อนไหว เพื่อตรวจสอบเบื้องต้น หรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 }
 echo "<hr><h3>success</h3><hr>";
 
