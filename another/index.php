@@ -256,7 +256,7 @@ elseif ((strpos($text, $help) !== false) or (strpos($text, $help_th1) !== false)
 }
 
 elseif($text == 'สวัสดี' or $text== 'Hello'){
-	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์โดยตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
+	$bot->reply('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์ท่านสามารถตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
 	// use key 'http' even if you send the request to https://...
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/notify.py';
 	$data = array('data' => 'สวัสดี นี่คือระบบแจ้งเตือน', 'key' => 'abcd');
