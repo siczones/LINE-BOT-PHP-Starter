@@ -4,6 +4,7 @@ echo "@" .date('Y-m-d H:i:s');
 
 require_once __DIR__ . '/lineBot.php';
 
+$endpoint = 'ท่านสามารถตรวจสอบผลการทำงานเพิ่มเติมอีกครั้งได้ที่  https://siczones.coe.psu.ac.th';
 $bot = new Linebot();
 $text = $bot->getMessageText();
 $sirenOn = 'siren on';
@@ -28,7 +29,7 @@ if($text == 'สวัสดี' or $text== 'Hello'){
 }
 
 elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !== false)){
-	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ' .$endpoint);	
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
 	
@@ -48,7 +49,7 @@ elseif ((strpos($text, $sirenOff) !== false) or (strpos($text, $sirenOff_th) !==
 }
 
 elseif ((strpos($text, $sirenOn) !== false) or (strpos($text, $sirenOn_th) !== false)){
-	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ ท่านสามารถตรวจสอบผลการแจ้งเตือนเพื่อความแม่นยำได้อีกครั้งที่ ' .'https://siczones.coe.psu.ac.th');	
+	$bot->reply('ส่งคำขอ' .$text .'   ให้แล้วนะ' .$endpoint);		
 	$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 	$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
 	
