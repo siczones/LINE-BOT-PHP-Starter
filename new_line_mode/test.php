@@ -369,18 +369,17 @@ foreach ($events as $event) {
 				motion,
 				light,
 				voice,
+				siren,
 				siren on,
 				siren off,
 				mode,
 				mode: stand by,
 				mode: full
+				location,
+				status,
 			'.$endpoint);	
 			}
 		//
-		
-		
-		
-			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Command: siren, image, status, mode, location, hello");	
 			break;
 		}
 		$response = $bot->replyMessage($event->getReplyToken(), $outputText);
