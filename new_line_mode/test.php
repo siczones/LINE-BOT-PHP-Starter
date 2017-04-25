@@ -320,7 +320,7 @@ foreach ($events as $event) {
 			}
 			else $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์!  ไม่พบคีย์เวิร์ดที่ต้องการ ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน
 			
-	Please check your keywords again!, Or use "help" to show help document.'
+Please check your keywords again!, Or use "help" to show help document.'
 			);
 			break;
 		}
@@ -328,7 +328,7 @@ foreach ($events as $event) {
 	}
 	$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์! ระบบรองรับคำสั่งเฉพาะรูปแบบของภาษา ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน
 			
-	Oop! Please check your type of keywords again!, Or use "help" to show help document.'
+Oop! Please check your type of keywords again!, Or use "help" to show help document.'
 			);
 	$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 } 
