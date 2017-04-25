@@ -111,7 +111,7 @@ foreach ($events as $event) {
 					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", (string)$sensors_id[$count-1]),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[$count-1], .(string)$sensors_des[$count-1], $img_url , $actions);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[$count-1], (string)$sensors_des[$count-1], $img_url , $actions);
 				$columns[] = $column;
 				$count++;
 			}
