@@ -106,10 +106,11 @@ foreach ($events as $event) {
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			for($i=0;$i<5;$i++) {
 				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
+					//new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
+					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[0]),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[1], "Description", $img_url , $actions);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[1*i], "Description", $img_url , $actions);
 				$columns[] = $column;
 			}
 			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
