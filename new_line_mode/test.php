@@ -163,7 +163,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
@@ -183,7 +183,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
@@ -203,7 +203,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
@@ -223,7 +223,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
@@ -242,7 +242,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 				}
@@ -261,7 +261,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 				}
@@ -280,7 +280,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 				}
@@ -299,13 +299,13 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 				}
 
 			elseif ((strpos($messageText, $standby) !== false) or (strpos($messageText, $standby_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยนโหมด ' .$text .'  ให้แล้วนะ ' .$endpoint);	
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
 				$data = array('currentMode' => '1', 'key' => 'abcd');
 				
@@ -319,13 +319,13 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
 				
 			elseif ((strpos($messageText, $full) !== false) or (strpos($messageText, $full_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยนโหมด ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
 				$data = array('currentMode' => '2', 'key' => 'abcd');
 				
@@ -339,7 +339,7 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 				
 				var_dump($result);
 			}
