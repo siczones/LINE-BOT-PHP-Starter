@@ -16,6 +16,39 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 
+$endpoint = 'ท่านสามารถตรวจสอบผลการทำงานเพิ่มเติมอีกครั้งได้ที่  https://siczones.coe.psu.ac.th';
+$sirenOn = 'siren on';
+$sirenOn_th = 'เปิดไซเรน';
+$sirenOff = 'siren off';
+$sirenOff_th = 'ปิดไซเรน';
+$rpitemp = 'pi';
+$rpitemp_th = 'พาย';
+$temp = 'temp';
+$temp_th = 'อุณหภูมิ';
+$humid = 'humidity';
+$humid_th = 'ความชื้น';
+$voice = 'voice';
+$voice_th = 'เสียง';
+$light = 'light';
+$light_th = 'แสง';
+$motion = 'motion';
+$motion_th = 'เคลื่อนไหว';
+$help = 'help';
+$help_th1 = 'ช่วยเหลือ';
+$help_th2 = 'คู่มือ';
+
+$sensors = array("Temperature", "Humidity", "Voice", "Light", "Motion");
+$sensors_des = array("Temperature in celsuis degree", "Percent of humidity", "Voice activity detection", "Light in 10 level", "Motion detection");
+$sensors_id = array($temp, $humid, $voice, $light, $motion);
+
+$standby = 'mode: stand by';
+$standby_th = 'โหมด: อยู่บ้าน';
+$full = 'mode: full';
+$full_th = 'โหมด: ไม่อยู่บ้าน';
+$mode = 'mode';
+$mode_th = 'โหมด';
+
+
 $logger = new Logger('LineBot');
 $logger->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
 $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
@@ -73,10 +106,10 @@ foreach ($events as $event) {
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			for($i=0;$i<5;$i++) {
 				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("View status","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
+					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
+					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1), "description", $img_url , $actions);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($sensors[i], $sensors_des[i], $img_url , $actions);
 				$columns[] = $column;
 			}
 			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
