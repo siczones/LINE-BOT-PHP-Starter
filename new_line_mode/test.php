@@ -59,10 +59,10 @@ foreach ($events as $event) {
 				// general message action
 				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Stand by", "mode: stand by"),
 				// URL type action
-				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Full", "mode: full"),
+				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Full", "mode: full"),
 				// The following two are interactive actions
 				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
-				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("More", "https://siczones.coe.psu.ac.th")
+				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("More", "https://siczones.coe.psu.ac.th")
 			);
 			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
 			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("Mode", "Please select mode", $img_url, $actions);
