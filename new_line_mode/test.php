@@ -90,11 +90,9 @@ foreach ($events as $event) {
 		case "mode" :
 			$actions = array (
 				// general message action
-				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Stand by", "mode: stand by"),
-				// URL type action
+				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Stand by", "mode: stand by"),				
 				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Full", "mode: full"),
-				// The following two are interactive actions
-				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
+				// URL type action
 				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("More", "https://siczones.coe.psu.ac.th")
 			);
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
@@ -107,7 +105,6 @@ foreach ($events as $event) {
 			$count = 1;
 			for($i=0;$i<5;$i++) {				
 				$actions = array(
-					//new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
 					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", (string)$sensors_id[$count-1]),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
@@ -118,22 +115,6 @@ foreach ($events as $event) {
 			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $carousel);
 			break;	
-		/*
-			$columns = array();
-			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
-			for($i=0;$i<5;$i++) {
-				$actions = array(
-					//new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
-				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($sensors[i], $sensors_des[i], $img_url , $actions);
-				$columns[] = $column;
-			}
-			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
-			break;
-		*/
 		case "image" :
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			$outputText = new LINE\LINEBot\MessageBuilder\ImageMessageBuilder($img_url, $img_url);
@@ -174,8 +155,6 @@ foreach ($events as $event) {
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);		
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 				$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -214,8 +193,6 @@ foreach ($events as $event) {
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'temp', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -233,8 +210,6 @@ foreach ($events as $event) {
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'humid', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -252,8 +227,6 @@ foreach ($events as $event) {
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$voice_th .' ผิดปกติ  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'voice', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -271,8 +244,6 @@ foreach ($events as $event) {
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$light_th .' สว่าง  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'light', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -282,16 +253,13 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
-				
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}				
 				var_dump($result);
 				}
 			elseif ((strpos($messageText, $motion) !== false) or (strpos($messageText, $motion_th) !== false)){
 				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'motion', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -301,17 +269,30 @@ foreach ($events as $event) {
 				);
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
-				
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}				
 				var_dump($result);
 				}
 
 			elseif ((strpos($messageText, $standby) !== false) or (strpos($messageText, $standby_th) !== false)){
-				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
-				$data = array('currentMode' => '1', 'key' => 'abcd');
+				$data = array('currentMode' => '1', 'key' => 'abcd');			
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}	
+				else $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				var_dump($result);
+			}
 				
-				// use key 'http' even if you send the request to https://...
+			elseif ((strpos($messageText, $full) !== false) or (strpos($messageText, $full_th) !== false)){				
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
+				$data = array('currentMode' => '2', 'key' => 'abcd');			
 				$options = array(
 					'http' => array(
 						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -322,30 +303,9 @@ foreach ($events as $event) {
 				$context  = stream_context_create($options);
 				$result = file_get_contents($url, false, $context);
 				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
-				
+				else $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				var_dump($result);
 			}
-				
-			elseif ((strpos($messageText, $full) !== false) or (strpos($messageText, $full_th) !== false)){
-				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
-				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
-				$data = array('currentMode' => '2', 'key' => 'abcd');
-				
-				// use key 'http' even if you send the request to https://...
-				$options = array(
-					'http' => array(
-						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-						'method'  => 'POST',
-						'content' => http_build_query($data)
-					)
-				);
-				$context  = stream_context_create($options);
-				$result = file_get_contents($url, false, $context);
-				if ($result == FALSE) {$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
-				
-				var_dump($result);
-			}
-
 			elseif ((strpos($messageText, $mode) !== false) or (strpos($messageText, $mode_th1) !== false)){
 				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อควบคุมโหมดการทำงานของระบบ 
 				โหมด: อยู่บ้าน,
@@ -353,8 +313,7 @@ foreach ($events as $event) {
 				mode: stand by,
 				mode: full
 			'.$endpoint);	
-			}
-				
+			}				
 			elseif ((strpos($messageText, $help) !== false) or (strpos($messageText, $help_th1) !== false)){
 				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ 
 				พาย,
@@ -383,7 +342,6 @@ foreach ($events as $event) {
 				status,
 			'.$endpoint);	
 			}
-		//
 			break;
 		}
 		$response = $bot->replyMessage($event->getReplyToken(), $outputText);
