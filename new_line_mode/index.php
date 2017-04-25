@@ -1,12 +1,21 @@
 <?php
 require_once '../vendor/autoload.php';
+require_once __DIR__ . '/setting.php';
+
+//call function in setting.php
+$channelAccessToken = Setting::getChannelAccessToken(); 
+$channelSecret = Setting::getChannelSecret();
+$apiReply = Setting::getApiReply();
+$apiPush = Setting::getApiPush();
+
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 $logger = new Logger('LineBot');
 $logger->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV["LINEBOT_ACCESS_TOKEN"]);
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV["LINEBOT_CHANNEL_SECRET"]]);
+$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($channelAccessToken);
+$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $channelSecret);
 $signature = $_SERVER['HTTP_' . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
 try {
 	$events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
