@@ -37,7 +37,7 @@ $help = 'help';
 $help_th1 = 'ช่วยเหลือ';
 $help_th2 = 'คู่มือ';
 
-$sensors = array("Temperature", "Humidity", "Voice", "Light", "Motion");
+$sensors = array('Temperature', 'Humidity', 'Voice', 'Light', 'Motion');
 $sensors_des = array("Temperature in celsuis degree", "Percent of humidity", "Voice activity detection", "Light in 10 level", "Motion detection");
 $sensors_id = array($temp, $humid, $voice, $light, $motion);
 
@@ -109,11 +109,11 @@ foreach ($events as $event) {
 					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[(int)i], "Description", $img_url , $actions);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[1*i], "Description", $img_url , $actions);
 				$columns[] = $column;
 			}
 			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $carousel);
 			break;	
 		/*
 			$columns = array();
