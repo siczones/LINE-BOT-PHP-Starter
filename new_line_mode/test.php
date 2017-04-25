@@ -64,7 +64,7 @@ foreach ($events as $event) {
 				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
 				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("More", "https://siczones.coe.psu.ac.th")
 			);
-			$img_url = "http://3g-box.com/images/settings.png";
+			$img_url = "https://siczones.coe.psu.ac.th/img/brand/Noo.jpg";
 			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("Mode", "Please select mode", $img_url, $actions);
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
 			break;
