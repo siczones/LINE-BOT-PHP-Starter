@@ -106,6 +106,20 @@ foreach ($events as $event) {
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			for($i=0;$i<5;$i++) {
 				$actions = array(
+					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
+					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
+				);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Title", "description", $img_url , $actions);
+				$columns[] = $column;
+			}
+			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
+			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
+			break;	
+		/*
+			$columns = array();
+			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
+			for($i=0;$i<5;$i++) {
+				$actions = array(
 					//new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
 					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
@@ -115,7 +129,8 @@ foreach ($events as $event) {
 			}
 			$carousel = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselTemplateBuilder($columns);
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("Carousel Demo", $carousel);
-			break;	
+			break;
+		*/
 		case "image" :
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			$outputText = new LINE\LINEBot\MessageBuilder\ImageMessageBuilder($img_url, $img_url);
