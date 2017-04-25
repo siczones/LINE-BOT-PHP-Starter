@@ -145,6 +145,241 @@ foreach ($events as $event) {
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
 			break;
 		default :
+		//
+			if ((strpos($messageText, $sirenOff) !== false) or (strpos($messageText, $sirenOff_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
+				$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+
+			elseif ((strpos($messageText, $sirenOn) !== false) or (strpos($messageText, $sirenOn_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);		
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
+				$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+
+			elseif ((strpos($messageText, $rpitemp) !== false) or (strpos($messageText, $rpitemp_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...อุณหภูมิเซิร์ฟเวอร์ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'rpitemp', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+
+			elseif ((strpos($messageText, $temp) !== false) or (strpos($messageText, $temp_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'temp', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+			elseif ((strpos($messageText, $humid) !== false) or (strpos($messageText, $humid_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'humid', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+				}
+			elseif ((strpos($messageText, $voice) !== false) or (strpos($messageText, $voice_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$voice_th .' ผิดปกติ  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'voice', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+				}
+			elseif ((strpos($messageText, $light) !== false) or (strpos($messageText, $light_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$light_th .' สว่าง  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'light', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+				}
+			elseif ((strpos($messageText, $motion) !== false) or (strpos($messageText, $motion_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
+				$data = array('ID' => 'motion', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+				}
+
+			elseif ((strpos($messageText, $standby) !== false) or (strpos($messageText, $standby_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยนโหมด ' .$text .'  ให้แล้วนะ ' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
+				$data = array('currentMode' => '1', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+				
+			elseif ((strpos($messageText, $full) !== false) or (strpos($messageText, $full_th) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยนโหมด ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
+				$data = array('currentMode' => '2', 'key' => 'abcd');
+				
+				// use key 'http' even if you send the request to https://...
+				$options = array(
+					'http' => array(
+						'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+						'method'  => 'POST',
+						'content' => http_build_query($data)
+					)
+				);
+				$context  = stream_context_create($options);
+				$result = file_get_contents($url, false, $context);
+				if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
+				
+				var_dump($result);
+			}
+
+			elseif ((strpos($messageText, $mode) !== false) or (strpos($messageText, $mode_th1) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อควบคุมโหมดการทำงานของระบบ 
+				โหมด: อยู่บ้าน,
+				โหมด: ไม่อยู่บ้าน,
+				mode: stand by,
+				mode: full
+			'.$endpoint);	
+			}
+				
+			elseif ((strpos($messageText, $help) !== false) or (strpos($messageText, $help_th1) !== false)){
+				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ 
+				พาย,
+				อุณหภูมิ,
+				ความชื้น,
+				เคลื่อนไหว,
+				แสง,
+				เสียง,
+				ช่วยเหลือ,
+				โหมด,
+				โหมด: อยู่บ้าน,
+				โหมด: ไม่อยู่บ้าน,
+				pi,
+				temp,
+				humidity,
+				motion,
+				light,
+				voice,
+				siren on,
+				siren off,
+				mode,
+				mode: stand by,
+				mode: full
+			'.$endpoint);	
+			}
+		//
+		
+		
+		
 			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Command: siren, image, status, mode, location, hello");	
 			break;
 		}
