@@ -107,7 +107,7 @@ foreach ($events as $event) {
 			for($i=0;$i<5;$i++) {
 				$actions = array(
 					//new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
+					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[1]),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
 				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[1*i], "Description", $img_url , $actions);
@@ -138,8 +138,10 @@ foreach ($events as $event) {
 			break;	
 		case "siren" :
 			$actions = array (
-				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("on", "ans=on"),
-				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("off", "ans=off")
+				new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("On", "siren on"),
+				new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Off", "siren off")
+				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("on", "ans=on"),
+				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("off", "ans=off")
 			);
 			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder("Siren", $actions);
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
