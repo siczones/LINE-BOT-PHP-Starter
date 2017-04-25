@@ -106,7 +106,8 @@ foreach ($events as $event) {
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
 			for($i=0;$i<5;$i++) {
 				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
+					//new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", $sensors_id[i]),
+					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
 				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder($sensors[i], $sensors_des[i], $img_url , $actions);
@@ -128,7 +129,7 @@ foreach ($events as $event) {
 			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
 			break;
 		default :
-			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Command: text, location, button, confirm to test message template");	
+			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Command: siren, image, status, mode, location, hello");	
 			break;
 		}
 		$response = $bot->replyMessage($event->getReplyToken(), $outputText);
