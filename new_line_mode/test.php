@@ -149,7 +149,7 @@ foreach ($events as $event) {
 		default :
 		//
 			if ((strpos($messageText, $sirenOff) !== false) or (strpos($messageText, $sirenOff_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 				$data = array('AlertStatus' => 'OFF', 'key' => 'abcd');
 				
@@ -169,7 +169,7 @@ foreach ($events as $event) {
 			}
 
 			elseif ((strpos($messageText, $sirenOn) !== false) or (strpos($messageText, $sirenOn_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);		
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ส่งคำขอ ' .$messageText .'  ให้แล้วนะ ' .$endpoint);		
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/alert.py';
 				$data = array('AlertStatus' => 'ON', 'key' => 'abcd');
 				
@@ -189,7 +189,7 @@ foreach ($events as $event) {
 			}
 
 			elseif ((strpos($messageText, $rpitemp) !== false) or (strpos($messageText, $rpitemp_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...อุณหภูมิเซิร์ฟเวอร์ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...อุณหภูมิเซิร์ฟเวอร์ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'rpitemp', 'key' => 'abcd');
 				
@@ -209,7 +209,7 @@ foreach ($events as $event) {
 			}
 
 			elseif ((strpos($messageText, $temp) !== false) or (strpos($messageText, $temp_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$temp_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'temp', 'key' => 'abcd');
 				
@@ -228,7 +228,7 @@ foreach ($events as $event) {
 				var_dump($result);
 			}
 			elseif ((strpos($messageText, $humid) !== false) or (strpos($messageText, $humid_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$humid_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'humid', 'key' => 'abcd');
 				
@@ -247,7 +247,7 @@ foreach ($events as $event) {
 				var_dump($result);
 				}
 			elseif ((strpos($messageText, $voice) !== false) or (strpos($messageText, $voice_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$voice_th .' ผิดปกติ  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$voice_th .' ผิดปกติ  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'voice', 'key' => 'abcd');
 				
@@ -266,7 +266,7 @@ foreach ($events as $event) {
 				var_dump($result);
 				}
 			elseif ((strpos($messageText, $light) !== false) or (strpos($messageText, $light_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$light_th .' สว่าง  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...' .$light_th .' สว่าง  ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'light', 'key' => 'abcd');
 				
@@ -285,7 +285,7 @@ foreach ($events as $event) {
 				var_dump($result);
 				}
 			elseif ((strpos($messageText, $motion) !== false) or (strpos($messageText, $motion_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ระบบกำลังตรวจสอบ...การ' .$motion_th .'   ให้ท่านอยู่ '.' กรุณารอสักครู่! ในระหว่างนี้' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/requestAlert.py';
 				$data = array('ID' => 'motion', 'key' => 'abcd');
 				
@@ -305,7 +305,7 @@ foreach ($events as $event) {
 				}
 
 			elseif ((strpos($messageText, $standby) !== false) or (strpos($messageText, $standby_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
 				$data = array('currentMode' => '1', 'key' => 'abcd');
 				
@@ -325,7 +325,7 @@ foreach ($events as $event) {
 			}
 				
 			elseif ((strpos($messageText, $full) !== false) or (strpos($messageText, $full_th) !== false)){
-				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
+				//$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('เปลี่ยน ' .$messageText .'  ให้แล้วนะ ' .$endpoint);	
 				$url = 'https://siczones.coe.psu.ac.th/cgi-bin/mode.py';
 				$data = array('currentMode' => '2', 'key' => 'abcd');
 				
