@@ -283,6 +283,12 @@ elseif($text == 'สวัสดี' or $text== 'Hello'){
 	if ($result == FALSE) {$bot->reply('ไม่สำเร็จ!! กรุณารอสักครู่ แล้วลองใหม่อีกครั้ง!');}
 	var_dump($result);
 }
+
+elseif($text == 'รูปภาพ' or $text== 'image'){
+	$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
+	$bot->reply(img_url);
+}
+
 else{
 	$bot->reply('Oops! ไม่พบคีย์เวิร์ดที่ต้องการ ในระหว่างนี้ท่านสามารถใช้งาน คำสั่ง เปิดไฟ ปิดไฟ อุณหภูมิ ความชื้น เสียงผิดปกติ แสงสว่าง การเคลื่อนไหว หรือพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งานหรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');	
 }
