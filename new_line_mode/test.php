@@ -326,10 +326,12 @@ Please check your keywords again!, or use "help" to show help document.'
 		}
 		//$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 	}
+	else{
 	$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์! ระบบรองรับคำสั่งเฉพาะรูปแบบของภาษา ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน
 			
 Oop! Please check your type of keywords again!, or use "help" to show help document.'
 			);
+	}
 	$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 } 
 ?>
