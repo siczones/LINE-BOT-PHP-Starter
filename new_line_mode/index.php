@@ -8,6 +8,8 @@ $channelSecret = Setting::getChannelSecret();
 $apiReply = Setting::getApiReply();
 $apiPush = Setting::getApiPush();
 
+echo "<br><h1>This LINE-bot is working now!</h1>";
+echo "@" .date('Y-m-d H:i:s'); 
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
