@@ -318,7 +318,7 @@ foreach ($events as $event) {
 				$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ท่านสามารถใช้งาน คำสั่งดังต่อไปนี้เพื่อตรวจสอบและควบคุมการทำงานของระบบ 
 				พาย, อุณหภูมิ, ความชื้น, เคลื่อนไหว, แสง,เสียง,ช่วยเหลือ,โหมด,โหมด: อยู่บ้าน,โหมด: ไม่อยู่บ้าน,pi,temp,humidity,motion,light,voice,siren,siren on,siren off,mode,mode: stand by,mode: full,location,status,'.$endpoint);	
 			}
-			else $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์!  ไม่พบคีย์เวิร์ดที่ต้องการ ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน หรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ 
+			else $outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์!  ไม่พบคีย์เวิร์ดที่ต้องการ ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน
 			
 	Please check your keywords again!, Or use "help" to show help document.'
 			);
@@ -326,7 +326,7 @@ foreach ($events as $event) {
 		}
 		//$response = $bot->replyMessage($event->getReplyToken(), $outputText);
 	}
-	$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์! ระบบรองรับคำสั่งเฉพาะรูปแบบของภาษา ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน หรือตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ 
+	$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('อุ้ปส์! ระบบรองรับคำสั่งเฉพาะรูปแบบของภาษา ท่านสามารถพิมพ์คำว่า "ช่วยเหลือ"  เพื่อแสดงคู่มือการใช้งาน
 			
 	Oop! Please check your type of keywords again!, Or use "help" to show help document.'
 			);
