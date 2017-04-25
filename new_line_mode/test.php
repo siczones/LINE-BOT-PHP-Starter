@@ -104,14 +104,14 @@ foreach ($events as $event) {
 		case "status" :
 			$columns = array();
 			$img_url = "https://siczones.coe.psu.ac.th/img/brand/logo.jpg";
-			$count = 0;
+			$count = 1;
 			for($i=0;$i<5;$i++) {				
 				$actions = array(
 					//new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Get status","action=carousel&button=".$i),
-					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", (string)$sensors_id[$count]),
+					new \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Get status", (string)$sensors_id[$count-1]),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View more", "https://siczones.coe.psu.ac.th/cgi-bin/status.py")
 				);
-				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[$count++;], "Description", $img_url , $actions);
+				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1) .": " .(string)$sensors[$count-1], "Description", $img_url , $actions);
 				$columns[] = $column;
 				$count++;
 			}
