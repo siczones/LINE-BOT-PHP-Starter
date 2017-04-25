@@ -48,32 +48,32 @@ foreach ($events as $event) {
 	if (($event instanceof \LINE\LINEBot\Event\MessageEvent\TextMessage)) {
 		$messageText=strtolower(trim($event->getText()));
 		switch ($messageText) {
-		case "text" : 
-			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("text message");
+		case "hello" : 
+			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder('ยินดีต้อนรับสู่ระบบการแจ้งเตือนความปลอดภัยผ่านสื่อสังคมออนไลน์ท่านสามารถตรวจสอบข้อมูลเพิ่มเติมของระบบได้ที่ ' .'https://siczones.coe.psu.ac.th');
 			break;
 		case "location" :
-			$outputText = new \LINE\LINEBot\MessageBuilder\LocationMessageBuilder("Eiffel Tower", "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France", 48.858328, 2.294750);
+			$outputText = new \LINE\LINEBot\MessageBuilder\LocationMessageBuilder("Embedded room", "Department of Computer Engineering, Prince of Songkla University, Hatyai Songkla ,Thailand",  7.858328, 100.294750);
 			break;
-		case "button" :
+		case "mode" :
 			$actions = array (
 				// general message action
-				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("button 1", "text 1"),
+				New \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder("Stand by", "mode: stand by"),
 				// URL type action
-				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Google", "http://www.google.com"),
+				New \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("Full", "mode: full"),
 				// The following two are interactive actions
-				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
-				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Previous", "page=1")
+				//New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("next page", "page=3"),
+				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("More", "https://siczones.coe.psu.ac.th")
 			);
 			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("button text", "description", $img_url, $actions);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("this message to use the phone to look to the Oh", $button);
+			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ButtonTemplateBuilder("Mode", "Please select mode", $img_url, $actions);
+			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
 			break;
 		case "status" :
 			$columns = array();
 			$img_url = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
 			for($i=0;$i<5;$i++) {
 				$actions = array(
-					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("Add to Card","action=carousel&button=".$i),
+					new \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("View status","action=carousel&button=".$i),
 					new \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder("View","http://www.google.com")
 				);
 				$column = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\CarouselColumnTemplateBuilder("Sensor".($i+1), "description", $img_url , $actions);
@@ -91,11 +91,11 @@ foreach ($events as $event) {
 				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("on", "ans=on"),
 				New \LINE\LINEBot\TemplateActionBuilder\PostbackTemplateActionBuilder("off", "ans=off")
 			);
-			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder("problem", $actions);
-			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("this message to use the phone to look to the Oh", $button);
+			$button = new \LINE\LINEBot\MessageBuilder\TemplateBuilder\ConfirmTemplateBuilder("Siren", $actions);
+			$outputText = new \LINE\LINEBot\MessageBuilder\TemplateMessageBuilder("This funcntion active on mobile application only!", $button);
 			break;
 		default :
-			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("demo command: text, location, button, confirm to test message template");	
+			$outputText = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder("Command: text, location, button, confirm to test message template");	
 			break;
 		}
 		$response = $bot->replyMessage($event->getReplyToken(), $outputText);
